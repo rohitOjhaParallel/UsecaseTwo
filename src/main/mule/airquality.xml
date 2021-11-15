@@ -11,6 +11,7 @@
             </email:properties>
         </email:smtp-connection>
     </email:smtp-config>
+	<api-gateway:autodiscovery apiId="17428782" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="cc9de33b-4e60-4f98-8d43-ff092816555d" flowRef="airquality-main" />
 	<flow name="airquality-main">
         <http:listener config-ref="HTTP_Listener_config" path="/api/*">
             <http:response statusCode="#[vars.httpStatus default 200]">
