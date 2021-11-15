@@ -31,7 +31,7 @@
 						<muleVersion>${app.runtime}</muleVersion>
 						<username>${username}</username>
 						<password>${password}</password>
-						<applicationName>weather-ro-proxy</applicationName>
+						<applicationName>airquality-ro-proxy</applicationName>
 						<environment>Sandbox</environment>
 						<region>us-east-2</region>
 						<workers>1</workers>
