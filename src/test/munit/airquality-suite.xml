@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="airquality-suite.xml" />
+	<munit:test name="post:\airQuality:application\json:airquality-config-test" doc:id="13303dc8-15a4-42f6-8451-150c0f8a2e88" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="5a7cbc02-965e-42f8-b6dd-fe81553d7762" >
+				<munit:payload value="#[output application/json --- readUrl('classpath://postairQualityapplicationjsonairqualityconfigtest\set-event_payload1.dwl')]" encoding="UTF-8" mediaType="application/json" />
+				<munit:attributes value="#[readUrl('classpath://postairQualityapplicationjsonairqualityconfigtest\set-event_attributes1.dwl')]" />
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to post:\airQuality:application\json:airquality-config" doc:id="d274108c-a7b3-4b57-b521-059d1090dc8a" name="post:\airQuality:application\json:airquality-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="66da14ff-ace9-4f9a-b0dd-1df692284a75" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import postairQualityapplicationjsonairqualityconfigtest::assert_expression_payload1
+---
+assert_expression_payload1::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>

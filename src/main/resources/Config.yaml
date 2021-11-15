@@ -1,0 +1,17 @@
+api:
+  host: "api.openweathermap.org"
+  port: "80"
+
+weather:
+  host: "api.openweathermap.org"
+  basepath: "/"
+  protocol: "HTTP"
+  path: "/data/2.5/weather"
+  apiid: "1aff9b95e866bc23f12524c203999bdd"
+  
+airquality:
+  host: "api.openweathermap.org"
+  basepath: "/"
+  protocol: "HTTP"
+  path: "/data/2.5/air_pollution/forecast"
+  apiid: "1aff9b95e866bc23f12524c203999bdd"
